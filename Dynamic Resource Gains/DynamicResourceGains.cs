@@ -401,8 +401,6 @@ namespace Dynamic_Resource_Gains
             DrawTableCell("Rep", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(308);
-
             // Row 1: Base Multipliers (%)
             GUILayout.BeginHorizontal();
             GUILayout.Label("Base", rowLabelStyle, GUILayout.Width(56));
@@ -410,8 +408,6 @@ namespace Dynamic_Resource_Gains
             DrawTableCell(baseFundsPercent.ToString("F0") + "%", cellStyle, 84);
             DrawTableCell(baseReputationPercent.ToString("F0") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
-
-            DrawTableDivider(308);
 
             // Row 2: Penalties (%)
             GUILayout.BeginHorizontal();
@@ -421,8 +417,6 @@ namespace Dynamic_Resource_Gains
             DrawTableCell("-" + reputationPenaltyNow.ToString("F1") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(308);
-
             // Row 3: Effective Multipliers (%)
             GUILayout.BeginHorizontal();
             GUILayout.Label("Eff", rowLabelStyle, GUILayout.Width(56));
@@ -431,19 +425,12 @@ namespace Dynamic_Resource_Gains
             DrawTableCell(Mathf.Max(0f, effectiveReputationPercent).ToString("F0") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(308);
             GUILayout.Space(3);
         }
 
         private void DrawTableCell(string content, GUIStyle style, float width)
         {
             GUILayout.Label(content, style, GUILayout.Width(width), GUILayout.Height(28));
-        }
-
-        private void DrawTableDivider(float width)
-        {
-            Rect dividerRect = GUILayoutUtility.GetRect(width, 1);
-            GUI.Box(dividerRect, "", new GUIStyle(GUI.skin.box) { padding = new RectOffset(0, 0, 0, 0) });
         }
 
         private float ParsePercent(string value, float fallback)
