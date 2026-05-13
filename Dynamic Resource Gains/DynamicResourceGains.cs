@@ -11,7 +11,7 @@ namespace Dynamic_Resource_Gains
         public const string Version = "1.0.0";
 
         private ApplicationLauncherButton toolbarButton;
-        private Rect windowRect = new Rect(0, 0, 588, 910);
+        private Rect windowRect = new Rect(0, 0, 588, 680);
         private Rect manualWindowRect = new Rect(0, 0, 588, 672);
         private bool showWindow = false;
         private bool showManualWindow = false;
@@ -320,7 +320,7 @@ namespace Dynamic_Resource_Gains
                 repScaleFactorStr = DrawLabeledTextField("Pnl:", repScaleFactorStr, "Penalty in percent for each reputation step.", "Penalty in percent for each reputation step.", 70f, "%");
             }
 
-            GUILayout.FlexibleSpace();
+            GUILayout.Space(2);
             GUILayout.BeginHorizontal();
             if (DrawButton("Apply", "Apply values for the current session without saving.", 70f))
             {
