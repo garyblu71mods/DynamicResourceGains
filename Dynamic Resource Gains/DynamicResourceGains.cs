@@ -334,7 +334,7 @@ namespace Dynamic_Resource_Gains
             {
                 ResetToDefaults();
             }
-            if (DrawButton("Manual", "Open the in-game manual window with usage instructions.", 45f))
+            if (DrawButton("Manual", "Open the in-game manual window with usage instructions.", 55f))
             {
                 showManualWindow = !showManualWindow;
             }
@@ -411,8 +411,9 @@ namespace Dynamic_Resource_Gains
 
             // Row 2: Penalties (%)
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pnl", rowLabelStyle, GUILayout.Width(35));
-            DrawTableCell("-" + tierPenaltyNow.ToString("F1") + "% -" + sciencePenaltyNow.ToString("F1") + "%", cellStyle, 55);
+            GUILayout.Label("Penalty", rowLabelStyle, GUILayout.Width(35));
+            float totalSciencePenalty = tierPenaltyNow + sciencePenaltyNow;
+            DrawTableCell("-" + totalSciencePenalty.ToString("F1") + "%", cellStyle, 55);
             DrawTableCell("-" + fundsPenaltyNow.ToString("F1") + "%", cellStyle, 55);
             DrawTableCell("-" + reputationPenaltyNow.ToString("F1") + "%", cellStyle, 55);
             GUILayout.EndHorizontal();
