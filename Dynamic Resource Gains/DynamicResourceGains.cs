@@ -11,8 +11,8 @@ namespace Dynamic_Resource_Gains
         public const string Version = "1.0.0";
 
         private ApplicationLauncherButton toolbarButton;
-        private Rect windowRect = new Rect(0, 0, 420, 650);
-        private Rect manualWindowRect = new Rect(0, 0, 420, 480);
+        private Rect windowRect = new Rect(0, 0, 588, 910);
+        private Rect manualWindowRect = new Rect(0, 0, 588, 672);
         private bool showWindow = false;
         private bool showManualWindow = false;
         private bool windowsPositioned = false;
@@ -287,54 +287,54 @@ namespace Dynamic_Resource_Gains
         {
             GUILayout.BeginVertical();
             DrawCurrentProgressSection();
-            GUILayout.Space(4);
+            GUILayout.Space(6);
 
-            GUILayout.Label("Career Multipliers", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 12 });
-            GUILayout.Space(2);
-
-            scienceMultiplierStr = DrawLabeledTextField("Sci:", scienceMultiplierStr, "Base Science gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Science gain in percent. 100 = normal, 200 = double, 50 = half.", 50f, "%");
-            fundsMultiplierStr = DrawLabeledTextField("$:", fundsMultiplierStr, "Base Funds gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Funds gain in percent. 100 = normal, 200 = double, 50 = half.", 50f, "%");
-            reputationMultiplierStr = DrawLabeledTextField("Rep:", reputationMultiplierStr, "Base Reputation gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Reputation gain in percent. 100 = normal, 200 = double, 50 = half.", 50f, "%");
-
+            GUILayout.Label("Career Multipliers", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 17 });
             GUILayout.Space(3);
+
+            scienceMultiplierStr = DrawLabeledTextField("Sci:", scienceMultiplierStr, "Base Science gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Science gain in percent. 100 = normal, 200 = double, 50 = half.", 70f, "%");
+            fundsMultiplierStr = DrawLabeledTextField("$:", fundsMultiplierStr, "Base Funds gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Funds gain in percent. 100 = normal, 200 = double, 50 = half.", 70f, "%");
+            reputationMultiplierStr = DrawLabeledTextField("Rep:", reputationMultiplierStr, "Base Reputation gain in percent. 100 = normal, 200 = double, 50 = half.", "Base Reputation gain in percent. 100 = normal, 200 = double, 50 = half.", 70f, "%");
+
+            GUILayout.Space(4);
 
             dynamicScience = DrawToggle(dynamicScience, "Dynamic Sci", "Turns dynamic Science scaling on or off.");
             if (dynamicScience)
             {
-                sciencePerTierStr = DrawLabeledTextField("Tier:", sciencePerTierStr, "Penalty applied for each unlocked tech tier.", "Penalty applied for each unlocked tech tier.", 50f, "%");
-                scienceStepStr = DrawLabeledTextField("Step:", scienceStepStr, "Every this much lifetime Science adds one extra penalty step.", "Every this much lifetime Science adds one extra penalty step.", 50f, string.Empty);
-                scienceStepPenaltyStr = DrawLabeledTextField("Pnl:", scienceStepPenaltyStr, "Additional penalty applied for each Science step.", "Additional penalty applied for each Science step.", 50f, "%");
+                sciencePerTierStr = DrawLabeledTextField("Tier:", sciencePerTierStr, "Penalty applied for each unlocked tech tier.", "Penalty applied for each unlocked tech tier.", 70f, "%");
+                scienceStepStr = DrawLabeledTextField("Step:", scienceStepStr, "Every this much lifetime Science adds one extra penalty step.", "Every this much lifetime Science adds one extra penalty step.", 70f, string.Empty);
+                scienceStepPenaltyStr = DrawLabeledTextField("Pnl:", scienceStepPenaltyStr, "Additional penalty applied for each Science step.", "Additional penalty applied for each Science step.", 70f, "%");
             }
 
             dynamicFunds = DrawToggle(dynamicFunds, "Dynamic $", "Turns dynamic Funds scaling on or off.");
             if (dynamicFunds)
             {
-                fundsStepStr = DrawLabeledTextField("Step:", fundsStepStr, "After this many funds, one penalty step is counted.", "After this many funds, one penalty step is counted.", 50f, string.Empty);
-                fundsScaleFactorStr = DrawLabeledTextField("Pnl:", fundsScaleFactorStr, "Penalty in percent for each funds step.", "Penalty in percent for each funds step.", 50f, "%");
+                fundsStepStr = DrawLabeledTextField("Step:", fundsStepStr, "After this many funds, one penalty step is counted.", "After this many funds, one penalty step is counted.", 70f, string.Empty);
+                fundsScaleFactorStr = DrawLabeledTextField("Pnl:", fundsScaleFactorStr, "Penalty in percent for each funds step.", "Penalty in percent for each funds step.", 70f, "%");
             }
 
             dynamicReputation = DrawToggle(dynamicReputation, "Dynamic Rep", "Turns dynamic Reputation scaling on or off.");
             if (dynamicReputation)
             {
-                repStepStr = DrawLabeledTextField("Step:", repStepStr, "After this much reputation, one penalty step is counted.", "After this much reputation, one penalty step is counted.", 50f, string.Empty);
-                repScaleFactorStr = DrawLabeledTextField("Pnl:", repScaleFactorStr, "Penalty in percent for each reputation step.", "Penalty in percent for each reputation step.", 50f, "%");
+                repStepStr = DrawLabeledTextField("Step:", repStepStr, "After this much reputation, one penalty step is counted.", "After this much reputation, one penalty step is counted.", 70f, string.Empty);
+                repScaleFactorStr = DrawLabeledTextField("Pnl:", repScaleFactorStr, "Penalty in percent for each reputation step.", "Penalty in percent for each reputation step.", 70f, "%");
             }
 
             GUILayout.FlexibleSpace();
             GUILayout.BeginHorizontal();
-            if (DrawButton("Apply", "Apply values for the current session without saving.", 50f))
+            if (DrawButton("Apply", "Apply values for the current session without saving.", 70f))
             {
                 ApplyMultipliers();
             }
-            if (DrawButton("Save", "Save values so they stay after reloading the save.", 50f))
+            if (DrawButton("Save", "Save values so they stay after reloading the save.", 70f))
             {
                 SaveSettings();
             }
-            if (DrawButton("Reset", "Restore the default values in the form.", 50f))
+            if (DrawButton("Reset", "Restore the default values in the form.", 70f))
             {
                 ResetToDefaults();
             }
-            if (DrawButton("Manual", "Open the in-game manual window with usage instructions.", 50f))
+            if (DrawButton("Manual", "Open the in-game manual window with usage instructions.", 70f))
             {
                 showManualWindow = !showManualWindow;
             }
@@ -350,14 +350,14 @@ namespace Dynamic_Resource_Gains
 
         private void DrawCurrentProgressSection()
         {
-            GUIStyle headerStyle = new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 12 };
-            GUIStyle cellStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontSize = 11 };
-            GUIStyle rowLabelStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontSize = 11 };
+            GUIStyle headerStyle = new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 17 };
+            GUIStyle cellStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontSize = 15 };
+            GUIStyle rowLabelStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontSize = 15 };
 
             // Draw header with close button
             GUILayout.BeginHorizontal();
             GUILayout.Label("Current Status", headerStyle, GUILayout.ExpandWidth(true));
-            if (GUILayout.Button("X", GUILayout.Width(20), GUILayout.Height(20)))
+            if (GUILayout.Button("X", GUILayout.Width(28), GUILayout.Height(28)))
             {
                 showWindow = false;
             }
@@ -391,53 +391,53 @@ namespace Dynamic_Resource_Gains
             float effectiveFundsPercent = baseFundsPercent - fundsPenaltyNow;
             float effectiveReputationPercent = baseReputationPercent - reputationPenaltyNow;
 
-            GUILayout.Space(2);
+            GUILayout.Space(3);
 
             // Table Header
             GUILayout.BeginHorizontal();
-            GUILayout.Label("", cellStyle, GUILayout.Width(40));
-            DrawTableCell("Sci", cellStyle, 60);
-            DrawTableCell("$", cellStyle, 60);
-            DrawTableCell("Rep", cellStyle, 60);
+            GUILayout.Label("", cellStyle, GUILayout.Width(56));
+            DrawTableCell("Sci", cellStyle, 84);
+            DrawTableCell("$", cellStyle, 84);
+            DrawTableCell("Rep", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(220);
+            DrawTableDivider(308);
 
             // Row 1: Base Multipliers (%)
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Base", rowLabelStyle, GUILayout.Width(40));
-            DrawTableCell(baseSciencePercent.ToString("F0") + "%", cellStyle, 60);
-            DrawTableCell(baseFundsPercent.ToString("F0") + "%", cellStyle, 60);
-            DrawTableCell(baseReputationPercent.ToString("F0") + "%", cellStyle, 60);
+            GUILayout.Label("Base", rowLabelStyle, GUILayout.Width(56));
+            DrawTableCell(baseSciencePercent.ToString("F0") + "%", cellStyle, 84);
+            DrawTableCell(baseFundsPercent.ToString("F0") + "%", cellStyle, 84);
+            DrawTableCell(baseReputationPercent.ToString("F0") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(220);
+            DrawTableDivider(308);
 
             // Row 2: Penalties (%)
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pnl", rowLabelStyle, GUILayout.Width(40));
-            DrawTableCell("-" + tierPenaltyNow.ToString("F1") + "% -" + sciencePenaltyNow.ToString("F1") + "%", cellStyle, 60);
-            DrawTableCell("-" + fundsPenaltyNow.ToString("F1") + "%", cellStyle, 60);
-            DrawTableCell("-" + reputationPenaltyNow.ToString("F1") + "%", cellStyle, 60);
+            GUILayout.Label("Pnl", rowLabelStyle, GUILayout.Width(56));
+            DrawTableCell("-" + tierPenaltyNow.ToString("F1") + "% -" + sciencePenaltyNow.ToString("F1") + "%", cellStyle, 84);
+            DrawTableCell("-" + fundsPenaltyNow.ToString("F1") + "%", cellStyle, 84);
+            DrawTableCell("-" + reputationPenaltyNow.ToString("F1") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(220);
+            DrawTableDivider(308);
 
             // Row 3: Effective Multipliers (%)
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Eff", rowLabelStyle, GUILayout.Width(40));
-            DrawTableCell(Mathf.Max(0f, effectiveSciencePercent).ToString("F0") + "%", cellStyle, 60);
-            DrawTableCell(Mathf.Max(0f, effectiveFundsPercent).ToString("F0") + "%", cellStyle, 60);
-            DrawTableCell(Mathf.Max(0f, effectiveReputationPercent).ToString("F0") + "%", cellStyle, 60);
+            GUILayout.Label("Eff", rowLabelStyle, GUILayout.Width(56));
+            DrawTableCell(Mathf.Max(0f, effectiveSciencePercent).ToString("F0") + "%", cellStyle, 84);
+            DrawTableCell(Mathf.Max(0f, effectiveFundsPercent).ToString("F0") + "%", cellStyle, 84);
+            DrawTableCell(Mathf.Max(0f, effectiveReputationPercent).ToString("F0") + "%", cellStyle, 84);
             GUILayout.EndHorizontal();
 
-            DrawTableDivider(220);
-            GUILayout.Space(2);
+            DrawTableDivider(308);
+            GUILayout.Space(3);
         }
 
         private void DrawTableCell(string content, GUIStyle style, float width)
         {
-            GUILayout.Label(content, style, GUILayout.Width(width), GUILayout.Height(20));
+            GUILayout.Label(content, style, GUILayout.Width(width), GUILayout.Height(28));
         }
 
         private void DrawTableDivider(float width)
@@ -462,48 +462,48 @@ namespace Dynamic_Resource_Gains
         {
             GUILayout.BeginVertical();
 
-            GUILayout.Label("Manual - Quick Reference", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 12 });
-            GUILayout.Space(3);
+            GUILayout.Label("Manual - Quick Reference", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 17 });
+            GUILayout.Space(4);
 
             // Base Multipliers
-            GUILayout.Label("BASE MULTIPLIERS:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 11 });
-            GUILayout.Label("100%=normal, 200%=double, 50%=half", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
+            GUILayout.Label("BASE MULTIPLIERS:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 15 });
+            GUILayout.Label("100%=normal, 200%=double, 50%=half", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
 
             // Dynamic Science
-            GUILayout.Label("DYNAMIC SCIENCE:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 11 });
-            GUILayout.Label("Per Tier: loss % per tier (def: 2%)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("Step Size: science per step (def: 3000)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("Per Step: loss % per step (def: 0.1%)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
+            GUILayout.Label("DYNAMIC SCIENCE:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 15 });
+            GUILayout.Label("Per Tier: loss % per tier (def: 2%)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("Step Size: science per step (def: 3000)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("Per Step: loss % per step (def: 0.1%)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
 
             // Dynamic Funds
-            GUILayout.Label("DYNAMIC FUNDS:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 11 });
-            GUILayout.Label("Step Size: funds per step (def: 100k)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("Per Step: loss % per step (def: 2%)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
+            GUILayout.Label("DYNAMIC FUNDS:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 15 });
+            GUILayout.Label("Step Size: funds per step (def: 100k)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("Per Step: loss % per step (def: 2%)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
 
             // Dynamic Reputation
-            GUILayout.Label("DYNAMIC REPUTATION:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 11 });
-            GUILayout.Label("Step Size: reputation per step (def: 100)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("Per Step: loss % per step (def: 0.1%)", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
+            GUILayout.Label("DYNAMIC REPUTATION:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 15 });
+            GUILayout.Label("Step Size: reputation per step (def: 100)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("Per Step: loss % per step (def: 0.1%)", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
 
             // How to use
-            GUILayout.Label("HOW TO USE:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 11 });
-            GUILayout.Label("1. Check 'Current Status' for effective %", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("2. Set values → 3. APPLY (test) →", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
-            GUILayout.Label("4. SAVE (keep) → Verify in Current", new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Height(18));
+            GUILayout.Label("HOW TO USE:", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold, fontSize = 15 });
+            GUILayout.Label("1. Check 'Current Status' for effective %", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("2. Set values → 3. APPLY (test) →", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
+            GUILayout.Label("4. SAVE (keep) → Verify in Current", new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Height(25));
 
-            GUILayout.Space(3);
-            GUILayout.Label("Career Mode + Space Center only!", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Italic, fontSize = 10 });
+            GUILayout.Space(4);
+            GUILayout.Label("Career Mode + Space Center only!", new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Italic, fontSize = 14 });
 
             GUILayout.EndVertical();
 
             // Draw close button in top right corner
-            Rect closeButtonRect = new Rect(manualWindowRect.width - 24f, 4f, 20f, 20f);
-            if (GUI.Button(closeButtonRect, "X"))
+            Rect closeButtonRect = new Rect(manualWindowRect.width - 28f, 4f, 24f, 24f);
+            if (GUI.Button(closeButtonRect, "X", new GUIStyle(GUI.skin.button) { fontSize = 15 }))
             {
                 showManualWindow = false;
             }
 
-            GUI.DragWindow(new Rect(0f, 0f, manualWindowRect.width - 24f, 24f));
+            GUI.DragWindow(new Rect(0f, 0f, manualWindowRect.width - 28f, 24f));
         }
 
         private void ResetToDefaults()
@@ -529,11 +529,11 @@ namespace Dynamic_Resource_Gains
         private string DrawLabeledTextField(string label, string value, string tooltip, string tooltipAlt, float labelWidth, string suffix)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label(label, new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Width(labelWidth));
-            value = GUILayout.TextField(value, new GUIStyle(GUI.skin.textField) { fontSize = 11 }, GUILayout.MinWidth(60), GUILayout.MaxWidth(100));
+            GUILayout.Label(label, new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Width(labelWidth));
+            value = GUILayout.TextField(value, new GUIStyle(GUI.skin.textField) { fontSize = 15 }, GUILayout.MinWidth(84), GUILayout.MaxWidth(140));
             if (!string.IsNullOrEmpty(suffix))
             {
-                GUILayout.Label(suffix, new GUIStyle(GUI.skin.label) { fontSize = 11 }, GUILayout.Width(15));
+                GUILayout.Label(suffix, new GUIStyle(GUI.skin.label) { fontSize = 15 }, GUILayout.Width(21));
             }
             GUILayout.EndHorizontal();
             TrackLastRectTooltip(tooltip);
@@ -542,14 +542,14 @@ namespace Dynamic_Resource_Gains
 
         private bool DrawToggle(bool value, string text, string tooltip)
         {
-            bool result = GUILayout.Toggle(value, new GUIContent(text, tooltip), new GUIStyle(GUI.skin.toggle) { fontSize = 11 });
+            bool result = GUILayout.Toggle(value, new GUIContent(text, tooltip), new GUIStyle(GUI.skin.toggle) { fontSize = 15 });
             TrackLastRectTooltip(tooltip);
             return result;
         }
 
         private bool DrawButton(string text, string tooltip, float width)
         {
-            bool clicked = GUILayout.Button(new GUIContent(text, tooltip), new GUIStyle(GUI.skin.button) { fontSize = 11 }, GUILayout.Width(width));
+            bool clicked = GUILayout.Button(new GUIContent(text, tooltip), new GUIStyle(GUI.skin.button) { fontSize = 15 }, GUILayout.Width(width));
             TrackLastRectTooltip(tooltip);
             return clicked;
         }
